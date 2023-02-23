@@ -15,13 +15,14 @@ header nav{/*Mover lista a la parte superior derecha*/
     justify-content: flex-end;
 }
 
-a{
+a{/*Vínculos de header*/
     text-decoration: none;/*Eliminar decoración, Subrayado de links*/
     cursor: pointer; /**/
+    position: relative;/*Para poder subrayar*/
 }
 
 header nav .nav-right-section{/*Mover a la derecha lista*/
-    width: 250px; /*Psicion de lista superior derecha*/
+    width: 230px; /*Psicion de lista superior derecha*/
     height: auto;/*Margen de altura*/
     display: flex;
     list-style: none;/*Eliminar viñetas*/
@@ -30,26 +31,41 @@ header nav .nav-right-section{/*Mover a la derecha lista*/
 }
 
 nav .nav-right-section a{ /*Distancia entre viñetas*/
-    margin-right: 25px;
+    margin-right: 13px;
     color: black;
 }
 
-nav .nav-right-section .menu-icon{ /*Agregar imagen icono*/
-    background-image: url('https://img.icons8.com/ios-glyphs/90/000000/circled-menu.png'); 
+nav .nav-right-section .menu-icon{ /*Agregar imagen icono puntos*/
+    background-image: url('https://img.icons8.com/ios-glyphs/90/000000/circled-menu.png');
     background-repeat: no-repeat;
     background-position:center;
     background-size: contain;/*Tamaño y alineado de icono*/
-    width: 27px;
-    height: 27px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
 }
-
-nav .nav-right-section img{
+nav .nav-right-section .menu-icon:hover{/*Sombreado de icono puntos al pasar cursor*/
+    box-shadow: 1px 3px 6px 1px #00000083; /*Sombra se marca con dirección manecillas del reloj: arriba-derecha-abajo-izquierda*/
     border-radius: 80px;/*Redondear imagen*/
-    margin-left: 25px;/*Posicion (separar) de imagen foto*/
-    width: 35px;
-    height: 35px;
+} 
+
+nav .nav-right-section img{ /*icono foto usuario*/
+    border-radius: 80px;/*Redondear imagen*/
+    margin-left: 18px;/*Posicion (separar) de imagen foto*/
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
 }
 
+nav .nav-right-section img:hover{/*Sombreado de icono puntos al pasar cursor*/
+    box-shadow: 1px 3px 6px 1px #00000077; /*Sombra se marca con dirección manecillas del reloj: arriba-derecha-abajo-izquierda*/
+    border-radius: 80px;/*Redondear imagen*/
+} 
+
+header ul li a:hover{
+    text-decoration: underline;
+}
+ 
 main{
     margin-top: 30px;/*Pocision imagen de google baja*/
     text-align: center;/*Centrar todo*/
@@ -66,8 +82,8 @@ main .main-logo img{/*Tamaño imagen google*/
     height: 110px;
 }
 
-main .main-input{
-    width: 530px; /*Pocision barra búsqueda*/
+main .main-input{ /*Pocision barra búsqueda*/
+    width: 530px;
     margin: 0 auto;
     margin-bottom: 30px; /*Crea espacio entre barra búsqueda y botones*/
 }
@@ -89,7 +105,7 @@ main .main-input input{
     outline: none;
 }
 
-main .main-input-container:hover{ /*Sombreado de barra de búsqueda*/
+main .main-input-container:hover{ /*Sombreado de barra de búsqueda al pasar cursor*/
 box-shadow: 0 1px 6px 0 #20212447; /*Sombra se marca con dirección manecillas del reloj: arriba-derecha-abajo-izquierda*/
 }
 
@@ -125,14 +141,61 @@ main .main-input .cam-icon{
     padding-left: 25px;
 }
 
+/*TOOLTIPS*/
+.menu-icon,
+.foto-icon,
+.micro-icon,
+.cam-icon{
+    font-weight: normal; /*Para tooltip*/
+    color: #4824eb;
+    text-decoration: none;
+    position: relative;/*importante*/
+}
+
+.tooltip-h,
+.tooltip-box{
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.048);
+    line-height: 1.5px;
+    z-index: 2;
+    text-align: center;
+    color: #5f6368;
+    font-size: 12px;
+    padding: 10px;
+    left: 50%;
+    transform: translateX(-50%);/*centrar el tooltip horizontalmente*/
+    bottom: -38px;
+    width: auto;
+}
+    
+.tooltip-box::after{/*Agrega punta a tooltip*/
+    position: absolute;
+    content:"";
+    display: block;
+    border-bottom: 7px solid rgba(0, 0, 0, 0.048);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    top: -7px;
+    left: calc(50% - 7px);
+}   
+
+.menu-icon:hover .tooltip-h,
+.foto-icon:hover .tooltip-h,
+.micro-icon:hover .tooltip-box, 
+.cam-icon:hover .tooltip-box{/*Muesta el tooltip al pasar el cursor*/
+    display: inline-block;
+    white-space: nowrap;
+}
+
 /*Botones*/
 main .main-buttons{
     width: 530px;
     margin: 0 auto;    
 }
 
-main .main-buttons div{
-    display: inline-block;/*Coloca botones en sola linea*/
+main .main-buttons div{/*Coloca botones en sola linea*/
+    display: inline-block;
 }
 
 main .main-buttons button{
@@ -152,16 +215,16 @@ main .main-buttons button:hover{
     cursor: pointer;/*Cambia el cursor a manita*/
 }
 
-footer{
+footer{/*General*/
     width: 100%;
-    height: 50px;
+    height: 90px;
     background-color: #f2f2f2;
     position: absolute;
     bottom: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    font-size: 13px;
+    font-size: 14px;
     border-top: 1px solid #e4e4e4;
 }
 
@@ -170,6 +233,12 @@ footer ul{/*Listas general*/
     list-style: none;
     display: flex;
     padding-left: 0;
+
+}
+
+
+footer .footer-up{
+    justify-self: left;
 }
 
 footer .footer-left{
@@ -183,4 +252,34 @@ footer .footer-right{
 footer ul li a{
     margin: 10px;
     color: #5f6368;
+    position: relative;/*Para poder subrayar*/
 }
+
+/*------------------------------------------------------------*/
+/*Subrayado vínculos de footer*/
+footer ul li a:hover{
+    /*Normal*/
+    text-decoration: underline;
+}
+    /*Animado*/
+    /*  footer ul li a:after {
+    /*    content: "";
+    /*    position: absolute;
+    /*    right: 0;
+    /*    bottom: 0;
+    /*    left: 0;
+    /*    height: 1px;/*Ancho de subrayado*/
+    /*    width: 100%;
+    /*    background: #5f6368b2;
+    /*    /*animacion de derecha a izquierda*/
+    /*    transform-origin: right;
+    /*    transform: scaleX(0);/*Desaparece linea*/
+    /*    transition: transform 0.2s ease-in-out;
+    /*  }
+  
+    /*footer ul li a:hover:after {
+    /*    /*animacion de derecha a izquierda*/
+    /*    transform-origin: left;/*Origen de subrayado*/
+    /*    transform: scaleX(1);
+    /* }
+/*------------------------------------------------------------*/
