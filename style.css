@@ -1,285 +1,471 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
-}/**/
+/* Barra de navegacion */
 
-header{
-    width: 100%;
-    height: 60px;
+.navbar {
+  padding: 2rem;
+  background-color: #f5f6f7;
 }
 
-header nav{/*Mover lista a la parte superior derecha*/
-    display: flex;
-    justify-content: flex-end;
+.navbar-collapse {
+  align-items: center;
+  justify-content: space-between;  
 }
 
-a{/*Vínculos de header*/
-    text-decoration: none;/*Eliminar decoración, Subrayado de links*/
-    cursor: pointer; /**/
-    position: relative;/*Para poder subrayar*/
+.navbar-nav li a{
+  position: relative;
+  text-decoration: none;
 }
 
-header nav .nav-right-section{/*Mover a la derecha lista*/
-    width: 230px; /*Psicion de lista superior derecha*/
-    height: auto;/*Margen de altura*/
-    display: flex;
-    list-style: none;/*Eliminar viñetas*/
-    justify-content: center;
-    align-items: center;
+.navbar-nav li a:after{
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;/*Ancho de subrayado*/
+  width: 100%;
+  background: #0933a8;
+  /*animacion de derecha a izquierda*/
+  transform-origin: right;
+  transform: scaleX(0);/*Desaparece linea*/
+  transition: transform 0.2s ease-in-out;
 }
 
-nav .nav-right-section a{ /*Distancia entre viñetas*/
-    margin-right: 13px;
-    color: black;
+.navbar-nav li a:hover:after{
+  transform-origin: left;/*Origen de subrayado*/
+  transform: scaleX(1);
 }
 
-nav .nav-right-section .menu-icon{ /*Agregar imagen icono puntos*/
-    background-image: url('https://img.icons8.com/ios-glyphs/90/000000/circled-menu.png');
-    background-repeat: no-repeat;
-    background-position:center;
-    background-size: contain;/*Tamaño y alineado de icono*/
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
-nav .nav-right-section .menu-icon:hover{/*Sombreado de icono puntos al pasar cursor*/
-    box-shadow: 1px 3px 6px 1px #00000083; /*Sombra se marca con dirección manecillas del reloj: arriba-derecha-abajo-izquierda*/
-    border-radius: 80px;/*Redondear imagen*/
-} 
+/* Estilos generales */
 
-nav .nav-right-section img{ /*icono foto usuario*/
-    border-radius: 80px;/*Redondear imagen*/
-    margin-left: 18px;/*Posicion (separar) de imagen foto*/
-    width: 33px;
-    height: 33px;
-    cursor: pointer;
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-nav .nav-right-section img:hover{/*Sombreado de icono puntos al pasar cursor*/
-    box-shadow: 1px 3px 6px 1px #00000077; /*Sombra se marca con dirección manecillas del reloj: arriba-derecha-abajo-izquierda*/
-    border-radius: 80px;/*Redondear imagen*/
-} 
-
-header ul li a:hover{
-    text-decoration: underline;
-}
- 
-main{
-    margin-top: 30px;/*Pocision imagen de google baja*/
-    text-align: center;/*Centrar todo*/
+h1 {
+  font-size: 2.5rem;
+  font-family: 'Rubik Dirt', cursive;
+  color: #ffa9a8;
 }
 
-main .main-logo{ /*Logo google posición centrada*/
-    width: 530px;
-    margin: 0 auto;
-    margin-bottom: 35px;
+.seccion-oscura {
+  color: white;
+  background-color: #068fd9;
 }
 
-main .main-logo img{/*Tamaño imagen google*/
-    width: 310px;
-    height: 110px;
+.seccion-clara {
+  color: black;
+  background-color: white;
 }
 
-main .main-input{ /*Pocision barra búsqueda*/
-    width: 530px;
-    margin: 0 auto;
-    margin-bottom: 30px; /*Crea espacio entre barra búsqueda y botones*/
+.seccion-titulo {
+  font-size: 2rem;
+  padding: 15px 0;
+  font-family: 'Rubik Dirt', cursive;
 }
 
-/*Barra extensa*/
-main .main-input-container{ 
-    width: 525px;
-    border-radius: 100px;
-    border: 1px solid #dfe1e5;
-    display: flex;
-    justify-content: center; /*Centra texto de label*/
-    align-items: center;
+.seccion-descripcion {
+  font-size: 1.2rem;
+  color: #584e4e;
 }
 
-main .main-input input{
-    width: 450px;
-    height: 40px;
-    border: none;/*Elimina border de etiqueta*/
-    outline: none;
+.seccion-texto {
+  font-size: 1.2rem;
 }
 
-main .main-input-container:hover{ /*Sombreado de barra de búsqueda al pasar cursor*/
-box-shadow: 0 1px 6px 0 #20212447; /*Sombra se marca con dirección manecillas del reloj: arriba-derecha-abajo-izquierda*/
+.btn-info {
+  font-size: 1.1rem;
+  margin: 20px;
+  background-color: #07f6fb;
+  border: #07f6fb;
 }
 
-/*Icono de search*/
-main .main-input .search-icon{
-    background-image: url('https://img.icons8.com/android/24/000000/search.png');/*Imagen de ícono*/
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 24px;
-    height: 18px;
-    padding-left: 25px;
+.texto-negro {
+  color: black;
 }
 
-/*Icono de micrófono*/
-main .main-input .micro-icon{
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/726px-Google_mic.svg.png');/*Imagen de ícono*/
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 24px;
-    height: 18px;
+.texto-blanco {
+  color: white;
 }
 
-/*Icono de cámara*/
-main .main-input .cam-icon{
-    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI0LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IlN0YW5kYXJkX3Byb2R1Y3RfaWNvbiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIKCSB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE5MnB4IiBoZWlnaHQ9IjE5MnB4IiB2aWV3Qm94PSIwIDAgMTkyIDE5MiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTkyIDE5MiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxyZWN0IGlkPSJib3VuZGluZ19ib3hfMV8iIGZpbGw9Im5vbmUiIHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIi8+CjxnIGlkPSJhcnRfbGF5ZXIiPgoJPGNpcmNsZSBpZD0iRG90IiBmaWxsPSIjNDI4NUY0IiBjeD0iOTYiIGN5PSIxMDQuMTUiIHI9IjI4Ii8+Cgk8cGF0aCBpZD0iUmVkIiBmaWxsPSIjRUE0MzM1IiBkPSJNMTYwLDcydjQwLjE1VjEzNmMwLDEuNjktMC4zNCwzLjI5LTAuODIsNC44MnYwdjBjLTEuNTcsNC45Mi01LjQzLDguNzgtMTAuMzUsMTAuMzVoMHYwCgkJYy0xLjUzLDAuNDktMy4xMywwLjgyLTQuODIsMC44Mkg2NmwxNiwxNmg1MGgxMmM0LjQyLDAsOC42My0wLjksMTIuNDYtMi41MWMzLjgzLTEuNjIsNy4yOC0zLjk2LDEwLjE3LTYuODYKCQljMS40NS0xLjQ1LDIuNzYtMy4wMywzLjkxLTQuNzRjMi4zLTMuNCwzLjk2LTcuMjgsNC44MS0xMS40NGMwLjQzLTIuMDgsMC42NS00LjI0LDAuNjUtNi40NXYtMTJWOTYuMTVWODRsLTYtMTlsLTEwLjgyLDIuMTgKCQlDMTU5LjY2LDY4LjcxLDE2MCw3MC4zMSwxNjAsNzJ6Ii8+Cgk8cGF0aCBpZD0iQmx1ZSIgZmlsbD0iIzQyODVGNCIgZD0iTTMyLDcyYzAtMS42OSwwLjM0LTMuMjksMC44Mi00LjgyYzEuNTctNC45Miw1LjQzLTguNzgsMTAuMzUtMTAuMzVDNDQuNzEsNTYuMzQsNDYuMzEsNTYsNDgsNTYKCQloOTZjMS42OSwwLDMuMjksMC4zNCw0LjgyLDAuODJjMCwwLDAsMCwwLDBMMTQ5LDQ1bC0xNy01bC0xNi0xNmgtMTMuNDRIOTZoLTYuNTZINzZMNjAsNDBINDhjLTE3LjY3LDAtMzIsMTQuMzMtMzIsMzJ2MTJ2MjBsMTYsMTYKCQlWNzJ6Ii8+Cgk8cGF0aCBpZD0iR3JlZW4iIGZpbGw9IiMzNEE4NTMiIGQ9Ik0xNDQsNDBoLTEybDE2LjgzLDE2LjgzYzEuMjMsMC4zOSwyLjM5LDAuOTMsMy40NywxLjU5YzIuMTYsMS4zMiwzLjk3LDMuMTMsNS4yOSw1LjI5CgkJYzAuNjYsMS4wOCwxLjIsMi4yNCwxLjU5LDMuNDd2MEwxNzYsODRWNzJDMTc2LDU0LjMzLDE2MS42Nyw0MCwxNDQsNDB6Ii8+Cgk8cGF0aCBpZD0iWWVsbG93IiBmaWxsPSIjRkJCQzA0IiBkPSJNNDgsMTY4aDM5Ljg5bC0xNi0xNkg0OGMtOC44MiwwLTE2LTcuMTgtMTYtMTZ2LTIzLjg5bC0xNi0xNlYxMzZDMTYsMTUzLjY3LDMwLjMzLDE2OCw0OCwxNjh6CgkJIi8+CjwvZz4KPC9zdmc+Cg==');/*Imagen de ícono*/
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 24px;
-    height: 18px;
-    padding-left: 25px;
+/* Seccion Hero */
+
+.hero {
+  background-color: #f5f6f7;
+  min-height: 450px;
+  text-align: center;
 }
 
-/*TOOLTIPS*/
-.menu-icon,
-.foto-icon,
-.micro-icon,
-.cam-icon{
-    font-weight: normal; /*Para tooltip*/
-    color: #4824eb;
-    text-decoration: none;
-    position: relative;/*importante*/
+.hero-principal {
+  padding: 3rem;
 }
 
-.tooltip-h,
-.tooltip-box{
-    display: none;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.048);
-    line-height: 1.5px;
-    z-index: 2;
-    text-align: center;
-    color: #5f6368;
-    font-size: 12px;
-    padding: 10px;
-    left: 50%;
-    transform: translateX(-50%);/*centrar el tooltip horizontalmente*/
-    bottom: -38px;
-    width: auto;
-}
-    
-.tooltip-box::after{/*Agrega punta a tooltip*/
-    position: absolute;
-    content:"";
-    display: block;
-    border-bottom: 7px solid rgba(0, 0, 0, 0.048);
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    top: -7px;
-    left: calc(50% - 7px);
-}   
-
-.menu-icon:hover .tooltip-h,
-.foto-icon:hover .tooltip-h,
-.micro-icon:hover .tooltip-box, 
-.cam-icon:hover .tooltip-box{/*Muesta el tooltip al pasar el cursor*/
-    display: inline-block;
-    white-space: nowrap;
+.hero-imagen-desarrollador {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
 }
 
-/*Botones*/
-main .main-buttons{
-    width: 530px;
-    margin: 0 auto;    
+.hero-principal h2 {
+  font-size: 1.5rem;
+  color: #615151;
 }
 
-main .main-buttons div{/*Coloca botones en sola linea*/
-    display: inline-block;
+/* Sobre mi */
+
+.sobre-mi {
+  height: 500px;
+  padding: 10px;
 }
 
-main .main-buttons button{
-    height: 36px;
-    background-color: #f8f9f9;
-    border: 0;
-    font-size: 14px;
-    color: #5f6368;
-    border-radius: 6px;
-    padding: 0 15px;
-    margin-right: 12px;
+.sobre-mi .contenedor {
+  max-width: 600px;
+  text-align: center;
 }
 
-main .main-buttons button:hover{
-    border: 1px solid #c6c6c6;
-    box-shadow: 0 0.5px 1px 0 #000001;
-    cursor: pointer;/*Cambia el cursor a manita*/
+/* Experiencia */
+
+.experiencia {
+  padding: 40px 40px 60px 40px;
 }
 
-footer{/*General*/
-    width: 100%;
-    height: 90px;
-    background-color: #f2f2f2;
-    position: absolute;
-    bottom: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    font-size: 14px;
-    border-top: 1px solid #e4e4e4;
+.experiencia .columna {
+  padding: 20px;
+  border: 2px solid #8080804d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 0.2s ease-in;
 }
 
-footer ul{/*Listas general*/
-    margin: 10px;
-    list-style: none;
-    display: flex;
-    padding-left: 0;
-
+.experiencia .columna:hover {
+  color: white;
+  background-color: #068fd9;
 }
 
-
-footer .footer-up{
-    justify-self: left;
+.experiencia i {
+  font-size: 2.5rem;
+  color: #ffa9a8;
+  background-color: #0933a8;
+  padding: 8px 19px;
+  border-radius: 50%;
 }
 
-footer .footer-left{
-    justify-self: left;
+.experiencia-titulo {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px 0;
 }
 
-footer .footer-right{
-    justify-self: right;
+.badges-contenedor {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
 }
 
-footer ul li a{
-    margin: 10px;
-    color: #5f6368;
-    position: relative;/*Para poder subrayar*/
+.badge {
+  margin: 5px;
+  background-color: #ffd17f;
+  color: #584e4e;
 }
 
-/*------------------------------------------------------------*/
-/*Subrayado vínculos de footer*/
-footer ul li a:hover{
-    /*Normal*/
-    text-decoration: underline;
+/* Proyectos */
+h2{
+  color: #ffa9a8;
 }
-    /*Animado*/
-    /*  footer ul li a:after {
-    /*    content: "";
-    /*    position: absolute;
-    /*    right: 0;
-    /*    bottom: 0;
-    /*    left: 0;
-    /*    height: 1px;/*Ancho de subrayado*/
-    /*    width: 100%;
-    /*    background: #5f6368b2;
-    /*    /*animacion de derecha a izquierda*/
-    /*    transform-origin: right;
-    /*    transform: scaleX(0);/*Desaparece linea*/
-    /*    transition: transform 0.2s ease-in-out;
-    /*  }
+.proyectos-recientes {
+  padding: 40px;
+}
+
+.proyectos-recientes img {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.proyectos-contenedor {
+  padding-top: 60px;
+  margin-bottom: 40px;
+}
+
+.overlay {
+  transition: all 0.2s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.overlay p {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.proyecto {
+  position: relative;
+}
+
+.proyecto:hover img {
+  opacity: 0.2;
+}
+
+.proyecto:hover .overlay {
+  opacity: 1;
+}
+
+.overlay .iconos-contenedor {
+  display: flex;
+}
+
+.overlay i {
+  color: black;
+  font-size: 60px;
+  margin: 10px;
+}
+
+/* Articulos */
+
+.articulos {
+  min-height: 500px;
+  padding: 30px;
   
-    /*footer ul li a:hover:after {
-    /*    /*animacion de derecha a izquierda*/
-    /*    transform-origin: left;/*Origen de subrayado*/
-    /*    transform: scaleX(1);
-    /* }
-/*------------------------------------------------------------*/
+}
+
+.articulos .card {
+  width: 80%;
+  max-width: 600px;
+  margin: 20px;
+}
+
+.articulos .card-header {
+  font-weight: bold;
+}
+
+.list-group a{
+  position: relative;
+  text-decoration: none;
+}
+
+.list-group a:after{
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;/*Ancho de subrayado*/
+  width: 100%;
+  background: #0933a8;
+  /*animacion de derecha a izquierda*/
+  transform-origin: right;
+  transform: scaleX(0);/*Desaparece linea*/
+  transition: transform 0.2s ease-in-out;
+}
+
+.list-group a:hover:after{
+  transform-origin: left;/*Origen de subrayado*/
+  transform: scaleX(1);
+}
+
+
+/* Testimonios */
+
+.testimonios {
+  padding: 40px 40px 80px 40px;
+}
+
+.testimonios .carousel {
+  max-width: 800px;
+}
+
+.carousel-item {
+  height: 500px;
+}
+
+.carousel-item .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonio-imagen {
+  height: 150px;
+  width: 150px;
+  margin: 10px 10px 20px 10px;
+}
+
+.testimonio-texto {
+  max-width: 70%;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.testimonio-info {
+  font-weight: bold;
+  text-align: center;
+}
+
+.testimonio-info p {
+  margin-bottom: 0;
+}
+
+.testimonio-footer .cliente {
+  font-size: 1.2rem;
+}
+
+.testimonio-info .cargo {
+  font-size: 0.9rem;
+  color: #656060;
+}
+
+/* Contacto */
+
+.contacto .container {
+  max-width: 1100px;
+  min-height: 200px;
+  padding: 20px;
+}
+
+.contacto .rectangulo {
+  margin-top: -5rem;
+  background-color:#0933a8;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px 1px white;
+}
+
+.contacto .row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.contacto .descripcion {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.contacto button {
+  color: white;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 1.25em 2em;
+  margin: 10px;
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+}
+
+.contacto button:hover {
+  background-color: white;
+  color: black;
+}
+
+.contacto button i {
+  color: white;
+  font-size: 1.3rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.contacto button:hover i {
+  color: black;
+}
+
+/* Pie de pagina (footer) */
+
+footer {
+  min-height: 500px;
+}
+
+.footer-logo {
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+}
+
+.footer-texto {
+  font-size: 1.5rem;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.iconos-redes-sociales a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  margin: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+}
+
+.iconos-redes-sociales i {
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in;
+}
+
+.iconos-redes-sociales a:hover {
+  background-color: white;
+  border: 2px solid rgb(13, 110, 253);
+}
+
+.iconos-redes-sociales a:hover i {
+  color: black;
+}
+
+.derechos-de-autor {
+  font-size: 15px;
+  color: #aeaeae;
+  padding: 20px;
+}
+
+/* Adaptable (Responsivo) */
+
+@media screen and (max-width: 400px) {
+  .overlay p {
+    font-size: 18px;
+  }
+
+  .overlay i {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-brand {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .testimonio-imagen {
+    height: 120px;
+    width: 120px;
+  }
+
+  .testimonio-texto {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .hero-inferior-imagen {
+    max-width: 600px;
+  }
+}
